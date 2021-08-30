@@ -1,5 +1,5 @@
 const salarioMaxAliquota1 = 1045.00
-const salarioMinAliquota1 = 1045.01
+const salarioMinAliquota2 = 1045.01
 const salarioMaxAliquota2 = 2089.60
 const salarioMinAliquota3 = 2089.61
 const salarioMaxAliquota3 = 3134.40
@@ -15,9 +15,15 @@ const valorFixoAliquota3 = 125.37
 const valorFixoAliquota4 = 415.33
 
 function calculoINSS(salario) {
-    if (salario < salarioMaxAliquota1){
+    if (salario <= salarioMaxAliquota1){
         return salario -= ((salario - salarioMaxAliquota1) * porcentagemDaAliquota1)   
-    }else {
-        return salario -= valorFixoAliquota1 }
+    }else if (salarioMinAliquota2 <= salario <= salarioMaxAliquota2){
+        return salario -= valorFixoAliquota1 + ((salario - salarioMinAliquota2) * porcentagemDaAliquota2)
+    }else if (salarioMinAliquota3 <= salario <= salarioMaxAliquota3){
+        return salario -= valorFixoAliquota1 + valorFixoAliquota2 + ((salario - salarioMinAliquota3) * porcentagemDaAliquota3)
+    }else if (salarioMinAliquota4 <= salario <= salarioMaxAliquota4){
+        return salario -= valorFixoAliquota1 + valorFixoAliquota2 + valorFixoAliquota3 + ((salario - salarioMinAliquota4) * porcentagemDaAliquota4)
+    } else {
+        return salario -= valorFixoAliquota1 + valorFixoAliquota2 + valorFixoAliquota3 + valorFixoAliquota4
+    }
 }
-calculoINSS(1123.38)
