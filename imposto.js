@@ -16,7 +16,7 @@ const valorFixoAliquota4 = 415.33
 
 function calculoINSS(salario) {
     if (salario <= salarioMaxAliquota1){
-        return salario -= ((salario - salarioMaxAliquota1) * porcentagemDaAliquota1)   
+        return salario -= (salario * porcentagemDaAliquota1)   
     }else if (salarioMinAliquota2 <= salario <= salarioMaxAliquota2){
         return salario -= valorFixoAliquota1 + ((salario - salarioMinAliquota2) * porcentagemDaAliquota2)
     }else if (salarioMinAliquota3 <= salario <= salarioMaxAliquota3){
